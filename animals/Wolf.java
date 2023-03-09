@@ -26,7 +26,7 @@ public class Wolf extends Animal {
                 ", nickName='" + nickName + '\'' +
                 ", yearBirth=" + yearBirth +
                 ", weight=" + weight +
-                "}\n";
+                "}";
     }
 
     @Override

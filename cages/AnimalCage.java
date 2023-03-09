@@ -14,4 +14,9 @@ public interface AnimalCage<T extends Animal> {
 
     int countAnimals();
 
+    void ageSortAnimals(boolean fromLessToHigher);
+    void weightSortAnimals(boolean fromLessToHigher);
+
+    void displayAnimals();
+
 }

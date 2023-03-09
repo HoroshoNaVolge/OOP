@@ -1,11 +1,17 @@
 package cages;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 import java.util.Random;
 
+import Comparators.AnimalWeightComparator;
+import Comparators.WolfAgeComparator;
+import Iterators.WolfIterator;
 import animals.Animal;
 import animals.Wolf;
 
-public class WolfCage implements AnimalCage<Wolf> {
+public class WolfCage implements AnimalCage<Wolf>, Iterable<Wolf> {
 
     private ArrayList<Wolf> wolves;
     private int foodWeight;
@@ -66,7 +72,7 @@ public class WolfCage implements AnimalCage<Wolf> {
                 }
             }
             this.foodWeight = tmpFood;
-        } catch (Exception e) {
+        } catch (NullPointerException e) {
             this.foodWeight = 0;
             this.garbageWeight = tmpFood;
         }
@@ -95,5 +101,33 @@ public class WolfCage implements AnimalCage<Wolf> {
     @Override
     public int countAnimals() {
         return wolves.size();
+    }
+
+    @Override
+    public Iterator<Wolf> iterator() {
+        return new WolfIterator(wolves);
+    }
+
+    @Override
+    public void ageSortAnimals(boolean fromLessToHigher) {
+        if (fromLessToHigher)
+            Collections.sort(wolves, new WolfAgeComparator(true));
+        else
+            Collections.sort(wolves, new WolfAgeComparator(false));
+    }
+
+    @Override
+    public void weightSortAnimals(boolean fromLessToHigher) {
+        if (fromLessToHigher)
+            Collections.sort(wolves, new AnimalWeightComparator(true));
+        else
+            Collections.sort(wolves, new AnimalWeightComparator(false));
+    }
+
+    @Override
+    public void displayAnimals() {
+        for (Wolf wolf : wolves) {
+            System.out.println(wolf.toString());
+        }
     }
 }
