@@ -1,4 +1,4 @@
-package Iterators;
+package animalUtils.Iterators;
 
 import animals.Snake;
 

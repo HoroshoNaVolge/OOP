@@ -1,23 +1,23 @@
-package Comparators;
+package animalUtils.Comparators;
 
-import animals.Snake;
+import animals.Wolf;
 
 import java.util.Comparator;
 
-public class SnakeAgeComparator implements Comparator<Snake> {
+public class WolfAgeComparator implements Comparator<Wolf> {
 
     int result = 1;
 
-    public SnakeAgeComparator() {
+    public WolfAgeComparator() {
     }
 
-    public SnakeAgeComparator(boolean fromLessToHigher) {
+    public WolfAgeComparator(boolean fromLessToHigher) {
         if (fromLessToHigher)
             result = -result;
     }
 
     @Override
-    public int compare(Snake o1,Snake o2) {
+    public int compare(Wolf o1, Wolf o2) {
         if (o1.getYearBirth() < o2.getYearBirth()) {
             return result;
         } else if (o1.getYearBirth() > o2.getYearBirth()) {

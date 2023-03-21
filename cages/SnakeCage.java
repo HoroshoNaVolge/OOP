@@ -5,9 +5,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
 
-import Comparators.AnimalWeightComparator;
-import Comparators.SnakeAgeComparator;
-import Iterators.SnakeIterator;
+import animalUtils.Comparators.AnimalWeightComparator;
+import animalUtils.Comparators.SnakeAgeComparator;
+import animalUtils.Iterators.SnakeIterator;
 import animals.Animal;
 import animals.Snake;
 

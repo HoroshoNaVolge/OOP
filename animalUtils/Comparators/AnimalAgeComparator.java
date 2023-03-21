@@ -1,4 +1,4 @@
-package Comparators;
+package animalUtils.Comparators;
 
 import animals.Animal;
 
