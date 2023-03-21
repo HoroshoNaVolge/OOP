@@ -1,40 +1,33 @@
 import java.util.ArrayList;
 
-import animals.Animal;
 import animals.Snake;
-import cages.AnimalCage;
+import animals.Wolf;
 import cages.SnakeCage;
+import cages.WolfCage;
+import factory.SnakeFactory;
+import factory.WolfFactory;
+import terminal.TerminalReader;
+import terminal.parsers.ZooCommandParser;
+import zoo.Zoo;
 
 public class Main {
     public static void main(String[] args) {
 
-        Snake snake1 = new Snake("Jafar", 2020, 1, 0, 1);
-        Snake snake2 = new Snake("Yaga", 2021, 1, 0, 2);
-        // Фабрику уже надо юзать? Или пока так сойдет
+        ArrayList<Wolf> wolves = new WolfFactory().createAnimals(4);
+        WolfCage wCage = new WolfCage();
+        wCage.setWolves(wolves);
+        wCage.setGarbageWeight(1000);
+        wCage.setFoodWeight(15000);
 
-        AnimalCage cage = new SnakeCage();
+        ArrayList<Snake> snakes = new SnakeFactory().createAnimals(4);
+        SnakeCage sCage = new SnakeCage();
+        sCage.setSnakes(snakes);
+        sCage.setGarbageWeight(300);
+        sCage.setFoodWeight(500);
 
-        cage.addAnimal(snake1);
-        cage.addAnimal(snake2);
-
-        System.out.println("\nСоздана клетка " + cage.getClass().getSimpleName() + " для "
-                + cage.countAnimals() + " животных.");
-        cage.displayAnimals();
-
-        System.out.println("\nВыполняем сортировку по возрасту по возрастанию");
-        cage.ageSortAnimals(true);
-        cage.displayAnimals();
-
-        System.out.println("\nВыполняем сортировку по возрасту по убыванию");
-        cage.ageSortAnimals(false);
-        cage.displayAnimals();
-
-        System.out.println("\nВыполняем сортировку по весу по возрастанию");
-        cage.weightSortAnimals(true);
-        cage.displayAnimals();
-
-        System.out.println("\nВыполняем сортировку по весу по убыванию");
-        cage.weightSortAnimals(false);
-        cage.displayAnimals();
+        Zoo zoo = new Zoo(wCage, sCage);
+        TerminalReader tr = TerminalReader.getTerminalReader(new ZooCommandParser());
+        tr.setZoo(zoo);
+        tr.go();
     }
 }

@@ -16,7 +16,7 @@ public class SnakeCage implements AnimalCage<Snake>, Iterable<Snake> {
     private int foodWeight;
     private int garbageWeight;
 
-    public SnakeCage(){
+    public SnakeCage() {
         this.snakes = new ArrayList<Snake>();
     }
 
@@ -26,6 +26,26 @@ public class SnakeCage implements AnimalCage<Snake>, Iterable<Snake> {
             snakes.add(animal);
         }
         return snakes.size();
+    }
+
+    public void setSnakes(ArrayList<Snake> snakes) {
+        this.snakes = snakes;
+    }
+
+    public int getFoodWeight() {
+        return foodWeight;
+    }
+
+    public void setFoodWeight(int foodWeight) {
+        this.foodWeight = foodWeight;
+    }
+
+    public int getGarbageWeight() {
+        return garbageWeight;
+    }
+
+    public void setGarbageWeight(int garbageWeight) {
+        this.garbageWeight = garbageWeight;
     }
 
     @Override

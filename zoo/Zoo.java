@@ -45,8 +45,7 @@ public class Zoo {
         this.snakeCage = snakeCage;
     }
 
-    @Override
-    public String toString() {
+    public String Summary() {
         int wolfQuantity = 0;
         int snakeQuantity = 0;
 
@@ -56,9 +55,8 @@ public class Zoo {
         if (snakeCage != null) {
             snakeQuantity = snakeCage.countAnimals();
         }
-        return "My zoo{" +
-                "wolves=" + wolfQuantity +
-                ", snakes=" + snakeQuantity +
-                '}';
+        return "Сейчас в зоопарке\n" +
+                "wolves = " + wolfQuantity +
+                "\nsnakes = " + snakeQuantity + "\n";
     }
 }

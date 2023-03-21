@@ -5,10 +5,11 @@ import java.util.Random;
 
 import animals.Wolf;
 
-public class WolfFactory implements IAnimalFactory {
+public class WolfFactory implements AnimalFactory<Wolf> {
     static Random random = new Random();
 
-    public static ArrayList<Wolf> createWolves(int wolfsQuantity) {
+    @Override
+    public ArrayList<Wolf> createAnimals(int wolfsQuantity) {
         ArrayList<Wolf> wolvesList = new ArrayList<>();
         for (int i = 0; i < wolfsQuantity; i++) {
 
@@ -18,4 +19,5 @@ public class WolfFactory implements IAnimalFactory {
         }
         return wolvesList;
     }
+
 }
